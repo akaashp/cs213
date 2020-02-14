@@ -17,18 +17,25 @@ public class ProjectManager
          switch (                )  
          {   
             case 'A': add();
-		      break; 
-            case  
-            case               
-            case     
+               break;
+            case 'R': remove();
+               break;
+            case 'P': print();
+               break;
+            case 'Q': done = true;
             default: //deal with bad command here 
          }  
       }
       //write java code before you terminate the program
+      print();
+      System.out.println("The team is ready to go!");
+      return;
+
    } //run()
    
    private void add()
    {
+
       	//must check if the date is valid
 	//must call the contains() method to check if a given 
 	//team member is in the team already
