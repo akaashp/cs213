@@ -2,6 +2,8 @@
   
  @author  
  */
+import java.util.StringTokenizer;
+
 public class Date 
 {
    private int  day;
@@ -49,7 +51,7 @@ public class Date
 
       if (this.month > 12 || this.day>31) return false;
 
-      if (this.month = 2) {
+      if (this.month == 2) {
          maxDays = Month.DAYS_FEB;
          if (isLeapYear) maxDays++;
       }else if(this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11){
@@ -89,8 +91,9 @@ public class Date
 
    public static void main(String [] args)
    {
-      Date d = new Date("2/3/2011");
+      Date d = new Date("2/29/2011");
       System.out.println(d);
+      System.out.println("valid: " + d.isValid());
       Date e = new Date("2/3/2011");
       Date f = new Date("2/4/2011");
       System.out.println(d.equals(e));
