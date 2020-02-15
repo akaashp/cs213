@@ -16,8 +16,8 @@ public class Date
       StringTokenizer st = new StringTokenizer(d, "/");
       while (st.hasMoreTokens()){
          try {
-            this.day = Integer.parseInt(st.nextToken());
             this.month = Integer.parseInt(st.nextToken());
+            this.day = Integer.parseInt(st.nextToken());
             this.year = Integer.parseInt(st.nextToken());
          }
          catch (Exception e){
@@ -60,13 +60,11 @@ public class Date
          maxDays = Month.DAYS_ODD;
       }
 
-
       if (maxDays <this.day){
          return false;
       }
 
       return true;
-       
    }
    
    @Override
@@ -74,7 +72,7 @@ public class Date
    {
        //use the format "month/day/year"
       String date = "";
-      return  date += this.day + "/" + this.month + "/" + this.year;
+      return  date += this.month + "/" + this.day + "/" + this.year;
    }
    
    @Override
@@ -91,7 +89,7 @@ public class Date
 
    public static void main(String [] args)
    {
-      Date d = new Date("2/29/2011");
+      Date d = new Date("2/28/2000");
       System.out.println(d);
       System.out.println("valid: " + d.isValid());
       Date e = new Date("2/3/2011");
