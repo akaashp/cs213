@@ -1,6 +1,8 @@
 /**
+ Represents a Date for joining a team
+ Can instantiate, duplicate, check if valid, print, and check if equal
   
- @author  
+ @author Akaash Patel, Yanheng Zhang
  */
 import java.util.StringTokenizer;
 
@@ -9,7 +11,11 @@ public class Date
    private int  day;
    private int  month;
    private int  year;
-   
+
+   /**
+    * Creates a date object given a String date
+    * @param d String date to be used to instantiate the object
+    */
    public Date(String d)
    {
       //use StringTokenizer to parse the String and create a Date object
@@ -25,15 +31,23 @@ public class Date
          }
       }
    }
-   
+
+   /**
+    * Duplicates a Date object
+    * @param d Date object to be duplicated
+    */
    public Date(Date d)
    {
       //this is a constructor
       day = d.day;
       month = d.month;
       year = d.year;
-   }      
-   
+   }
+
+   /**
+    * Checks if a date is valid
+    * @return boolean, true if valid, false otherwise
+    */
    public boolean isValid() {
       boolean isLeapYear = false;
       if (this.year % 4 == 0) {
@@ -66,7 +80,11 @@ public class Date
 
       return true;
    }
-   
+
+   /**
+    * returns Date object Date as a String
+    * @return
+    */
    @Override
    public String toString()
    {
@@ -74,7 +92,12 @@ public class Date
       String date = "";
       return  date += this.month + "/" + this.day + "/" + this.year;
    }
-   
+
+   /**
+    * Overrides default equals to check if two Dates are equal
+    * @param obj Date obj to be checked
+    * @return true if Dates are equal, false otherwise
+    */
    @Override
    public boolean equals(Object obj)
    {

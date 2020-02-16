@@ -1,6 +1,6 @@
 /**
   
- @author  
+ @author  Akaash Patel, Yanheng Zhang
  */
 public class Prog1
 {

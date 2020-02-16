@@ -1,6 +1,8 @@
 /**
-  
- @author  
+  User interface to handle input/output regarding team
+  Can process inputs given by user and perform appropriate actions
+
+ @author Akaash Patel, Yanheng Zhang
  */
 
 import java.util.Scanner;
@@ -9,6 +11,11 @@ public class ProjectManager
 {
    Scanner stdin;
    Team cs213;
+
+   /**
+    * Given an action by a user, chooses appropriate response
+    * continually scans stdin for next operation
+    */
    public void run()
    {
       cs213 = new Team();
@@ -49,7 +56,12 @@ public class ProjectManager
       return;
 
    } //run()
-   
+
+   /**
+    * Adds a given member if date is valid and the member is not already on the team
+    * @param memName Name of member to be added
+    * @param date Date associated with member to be added
+    */
    private void add(String memName, Date date)
    {
       	//must check if the date is valid
@@ -68,7 +80,12 @@ public class ProjectManager
       }
 
    }
-   
+
+   /**
+    * Removes a given member f date is valid and member to be removed exists in the team
+    * @param memName Name of member to be removed
+    * @param date Date associated with member to be removed
+    */
    private void remove(String memName, Date date)
    {
       //must check if the date is valid
@@ -86,7 +103,10 @@ public class ProjectManager
          cs213.add(newMember);
       }
    }
-   
+
+   /**
+    * Prints members on the team
+    */
    private void print()
    {
       //must check if the team has 0 members.
