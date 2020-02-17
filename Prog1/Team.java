@@ -1,5 +1,9 @@
 /**
- * @author
+ * This class defines the properties and methods of a team, a container class for instances of TeamMember.
+ * TeamMembers are stored in an array, with an int to keep track of the total members.
+ * Methods are included for finding a member, adding, and removing members.
+ *
+ * @author Yanheng Zhang, Akaash Patel
  */
 public class Team {
     private final int NOT_FOUND = -1;
@@ -7,12 +11,23 @@ public class Team {
     private TeamMember[] team;
     private int numMembers;
 
+    /**
+     * Constructor for team member
+     *
+     * @param name of the team member, team member's start date
+     */
     public Team() {
         //this is the default constructor
         team = new TeamMember[GROW_SIZE];
         numMembers = 0;
     }
 
+    /**
+     * Finds a specific TeamMember in the team array by looping through it and checking for equality
+     *
+     * @param m TeamMember to be searched for in array team
+     * @return First index of a matching TeamMember in array team if one exists, NOT_FOUND constant otherwise
+     */
     private int find(TeamMember m) {
         for (int i = 0; i < numMembers; i++) {
             if (team[i].equals(m)) {
@@ -22,6 +37,9 @@ public class Team {
         return NOT_FOUND;
     }
 
+    /**
+     * Copies the array team over to a new array with four additional slots
+     */
     private void grow() {
         TeamMember[] newTeam = new TeamMember[numMembers + 4];
         for (int i = 0; i < numMembers; i++) {
@@ -30,10 +48,20 @@ public class Team {
         team = newTeam;
     }
 
+    /**
+     * Checks if team is empty
+     *
+     * @return True if numMembers if 0, false otherwise
+     */
     public boolean isEmpty() {
         return numMembers == 0;
     }
 
+    /**
+     * Adds TeamMember to array team, calling grow() on the array if full
+     *
+     * @param m TeamMember to be added
+     */
     public void add(TeamMember m) {
         if (numMembers == team.length) {
             grow();
@@ -42,6 +70,13 @@ public class Team {
         numMembers++;
     }
 
+    /**
+     * Removes TeamMember from array by finding the removed index through find(), replacing that with the last
+     * element and then setting the last element to null
+     *
+     * @param m TeamMember to be removed
+     * @return True if TeamMember was removed, false otherwise
+     */
     public boolean remove(TeamMember m) {
         int remInd = this.find(m);
         if (!(remInd == -1)) {
@@ -53,10 +88,19 @@ public class Team {
         return false;
     }
 
+    /**
+     * Checks to see if array team contains a certain TeamMember
+     *
+     * @param m TeamMember to be checked for inclusion
+     * @return False if no match can be found, and true otherwise
+     */
     public boolean contains(TeamMember m) {
         return find(m) != -1;
     }
 
+    /**
+     * Prints each team member in array team
+     */
     public void print() {
         //set up a for loop and call the toString() method
         for (int i = 0; i < numMembers; i++) {

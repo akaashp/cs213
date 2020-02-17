@@ -1,32 +1,30 @@
 /**
- Represents a Date for joining a team
- Can instantiate, duplicate, check if valid, print, and check if equal
-  
- @author Akaash Patel, Yanheng Zhang
+ * Represents a Date for joining a team
+ * Can instantiate, duplicate, check if valid, print, and check if equal
+ *
+ * @author Akaash Patel, Yanheng Zhang
  */
+
 import java.util.StringTokenizer;
 
-public class Date 
-{
-   private int  day;
-   private int  month;
-   private int  year;
+public class Date {
+   private int day;
+   private int month;
+   private int year;
 
    /**
     * Creates a date object given a String date
     * @param d String date to be used to instantiate the object
     */
-   public Date(String d)
-   {
+   public Date(String d) {
       //use StringTokenizer to parse the String and create a Date object
       StringTokenizer st = new StringTokenizer(d, "/");
-      while (st.hasMoreTokens()){
+      while (st.hasMoreTokens()) {
          try {
             this.month = Integer.parseInt(st.nextToken());
             this.day = Integer.parseInt(st.nextToken());
             this.year = Integer.parseInt(st.nextToken());
-         }
-         catch (Exception e){
+         } catch (Exception e) {
             //System.out.println("Error: invalid input");
          }
       }
@@ -36,8 +34,7 @@ public class Date
     * Duplicates a Date object
     * @param d Date object to be duplicated
     */
-   public Date(Date d)
-   {
+   public Date(Date d) {
       //this is a constructor
       day = d.day;
       month = d.month;
@@ -63,18 +60,18 @@ public class Date
 
       int maxDays = 0;
 
-      if (this.month > 12 || this.day>31) return false;
+      if (this.month > 12 || this.day > 31) return false;
 
       if (this.month == 2) {
          maxDays = Month.DAYS_FEB;
          if (isLeapYear) maxDays++;
-      }else if(this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11){
+      } else if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
          maxDays = Month.DAYS_EVEN;
-      }else{
+      } else {
          maxDays = Month.DAYS_ODD;
       }
 
-      if (maxDays <this.day){
+      if (maxDays < this.day) {
          return false;
       }
 
@@ -86,11 +83,10 @@ public class Date
     * @return
     */
    @Override
-   public String toString()
-   {
-       //use the format "month/day/year"
+   public String toString() {
+      //use the format "month/day/year"
       String date = "";
-      return  date += this.month + "/" + this.day + "/" + this.year;
+      return date += this.month + "/" + this.day + "/" + this.year;
    }
 
    /**
@@ -99,19 +95,17 @@ public class Date
     * @return true if Dates are equal, false otherwise
     */
    @Override
-   public boolean equals(Object obj)
-   {
-      if (obj == null){
+   public boolean equals(Object obj) {
+      if (obj == null) {
          return false;
       }
-      if (this.getClass() != obj.getClass()){
+      if (this.getClass() != obj.getClass()) {
          return false;
       }
-      return day==((Date)obj).day && month==((Date)obj).month && year==((Date)obj).year;
+      return day == ((Date) obj).day && month == ((Date) obj).month && year == ((Date) obj).year;
    }
 
-   public static void main(String [] args)
-   {
+   public static void main(String[] args) {
       Date d = new Date("2/28/2000");
       System.out.println(d);
       System.out.println("valid: " + d.isValid());
