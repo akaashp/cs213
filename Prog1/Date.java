@@ -61,7 +61,7 @@ public class Date {
 
       int maxDays = 0;
 
-      if (this.month > 12 || this.day > 31) return false;
+      if (this.month > 12 || this.day > 31 || this.day<1 ) return false;
 
       if (this.month == 2) {
          maxDays = Month.DAYS_FEB;

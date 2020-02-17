@@ -14,7 +14,7 @@ public class ProjectManager
 
    /**
     * Given an action by a user, chooses appropriate response
-    * continually scans stdin for next operation
+    * continually scans lines from stdin for next operation
     */
    public void run()
    {
@@ -27,14 +27,17 @@ public class ProjectManager
          String nameIn = "";
          String dateInString = "";
          Date dateIn = null;
-         String command = stdin.next();
+         String query = stdin.nextLine();
+         String[] inputs = query.split(" ");
+         String command = inputs[0];
 
-         if (command.equals("A") || command.equals("R")){
-            nameIn = stdin.next();
-            dateInString = stdin.next();
+         if (inputs.length == 3) {
+            nameIn = inputs[1];
+            dateInString = inputs[2];
             dateIn = new Date(dateInString);
-
          }
+
+
          switch (command)
          {   
             case "A": add(nameIn,dateIn);
@@ -46,6 +49,7 @@ public class ProjectManager
             case "Q": done = true;
                break;
             default: System.out.println("Command '"+command+"' not supported!");//deal with bad command here
+
                break;
          }  
       }
@@ -100,7 +104,6 @@ public class ProjectManager
          cs213.remove(newMember);
       }else{
          System.out.println(newMember.toString()+" is not a team member.");
-         cs213.add(newMember);
       }
    }
 
