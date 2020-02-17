@@ -5,6 +5,7 @@
  * @author Akaash Patel, Yanheng Zhang
  */
 
+import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
 import java.util.StringTokenizer;
 
 public class Date {
@@ -43,7 +44,7 @@ public class Date {
 
    /**
     * Checks if a date is valid
-    * @return boolean, true if valid, false otherwise
+    * @return boolean: true if valid, false otherwise
     */
    public boolean isValid() {
       boolean isLeapYear = false;
@@ -80,7 +81,7 @@ public class Date {
 
    /**
     * returns Date object Date as a String
-    * @return
+    * @return String representation of a date
     */
    @Override
    public String toString() {
@@ -108,11 +109,19 @@ public class Date {
    public static void main(String[] args) {
       Date d = new Date("2/28/2000");
       System.out.println(d);
+
+      Date dClone = new Date(d);
+      System.out.println("d: "+d+" dClone: "+ dClone);
+
       System.out.println("valid: " + d.isValid());
       Date e = new Date("2/3/2011");
       Date f = new Date("2/4/2011");
+      Date g = new Date("2/4/2011");
       System.out.println(d.equals(e));
       System.out.println(d.equals(f));
+      System.out.println(f.equals(g));
+
+
       //testbed main; you must include test cases that exercise
       //the constructor and all methods in this class.
    }

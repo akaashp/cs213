@@ -1,5 +1,5 @@
 /**
-  
+ * Driver class that calls run from ProjectManager
  @author  Akaash Patel, Yanheng Zhang
  */
 public class Prog1
