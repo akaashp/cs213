@@ -61,11 +61,21 @@ public class TeamMember {
         //testbed main; you must include test cases that exercise
         //the constructor and all methods in this class.
         Date d = new Date("2/29/2011");
+        Date e = new Date("3/29/2011");
         TeamMember m1 = new TeamMember("Henri", d);
         System.out.println(m1.getStartDate());
+        TeamMember m1Clone = new TeamMember("Henri", d);
         TeamMember m2 = new TeamMember("Jack", d);
+        System.out.println(m1Clone.equals(m1));
         System.out.println(m2.equals(m1));
         System.out.println(m1);
+        TeamMember m3 = new TeamMember("Henri", d);
+        TeamMember m4 = new TeamMember("Henri", e);
+        System.out.println(m3.equals(m4));
+        TeamMember m5 = new TeamMember("Henri", d);
+        TeamMember m6 = new TeamMember("Jack", e);
+        System.out.println(m5.equals(m6));
+
 
     }
 }
