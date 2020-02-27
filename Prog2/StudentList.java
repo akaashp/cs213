@@ -9,4 +9,9 @@ public class StudentList {
     public void print(){
 
     }
+
+    public void isEmpty(){
+
+    }
+
 }
