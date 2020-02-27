@@ -21,6 +21,7 @@ public class Instate extends Student {
             total = this.credit * IN_STATE_CREDIT;
         }
         total += fee;
+        total -= funds;
         return total;
     }
     public String toString() {
