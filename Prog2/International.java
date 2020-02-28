@@ -31,4 +31,15 @@ public class International extends Student {
         total += fee;
         return total;
     }
+
+    public static void main(String[] args){
+        Student david = new International("David", "Lee", 12, false);
+        System.out.println(david.tuitionDue());
+        System.out.println(david);
+
+        Student mary = new International("Mary", "Yang", 17, true);
+        System.out.println(mary.tuitionDue());
+        System.out.println(mary);
+
+    }
 }

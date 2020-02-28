@@ -28,4 +28,13 @@ public class Instate extends Student {
         return super.toString() + " " + funds;
     }
 
+    public static void main(String[] args){
+        Student peter = new Instate("Peter", "Parker", 8, 0);
+        System.out.println(peter.tuitionDue());
+        System.out.println(peter);
+        Student john = new Instate("John", "Young", 12, 1000);
+        System.out.println(john.tuitionDue());
+        System.out.println(john);
+    }
+
 }

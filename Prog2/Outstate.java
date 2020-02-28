@@ -8,27 +8,28 @@ public class Outstate extends Student {
     }
     public int tuitionDue(){
         int fee = 0;
+        int total = 0;
         if (credit < PART_TIME_CUTOFF){
             fee = PART_TIME_FEE;
+            total = this.credit * OUT_STATE_CREDIT;
         }
         else {
             fee = FULL_TIME_FEE;
-        }
-        int total = 0;
-        if (credit > CREDIT_CUTOFF){
             if (tristate){
-                total = CREDIT_CUTOFF * TRISTATE_CREDIT;
+                if (this.credit > CREDIT_CUTOFF){
+                    total = CREDIT_CUTOFF * TRISTATE_CREDIT;
+                }
+                else {
+                    total = this.credit * TRISTATE_CREDIT;
+                }
             }
             else{
-                total = CREDIT_CUTOFF * OUT_STATE_CREDIT;
-            }
-        }
-        else {
-            if (tristate){
-                total = this.credit * TRISTATE_CREDIT;
-            }
-            else{
-                total = this.credit * OUT_STATE_CREDIT;
+                if (this.credit > CREDIT_CUTOFF){
+                    total = CREDIT_CUTOFF * OUT_STATE_CREDIT;
+                }
+                else {
+                    total = this.credit * OUT_STATE_CREDIT;
+                }
             }
         }
         total += fee;
@@ -45,4 +46,14 @@ public class Outstate extends Student {
         return super.toString() + " " + triStr;
     }
 
+    public static void main(String[] args){
+        Student simons = new Outstate("Simons", "Michael", 8, false);
+        System.out.println(simons.tuitionDue());
+        System.out.println(simons);
+
+        Student stiller = new Outstate("Stiller", "Anderson", 8, true);
+        System.out.println(stiller.tuitionDue());
+        System.out.println(stiller);
+
+    }
 }
