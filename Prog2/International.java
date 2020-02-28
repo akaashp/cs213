@@ -1,4 +1,4 @@
-public class International extends Student {
+ public class International extends Student {
     public static final int INT_FEE = 350;
     public static final int INT_CREDIT = 945;
     private boolean exchange;
