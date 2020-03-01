@@ -32,6 +32,10 @@
         return total;
     }
 
+     public String toString() {
+         return super.toString() + " Is Exchange:" + exchange;
+     }
+
     public static void main(String[] args){
         Student david = new International("David", "Lee", 12, false);
         System.out.println(david.tuitionDue());

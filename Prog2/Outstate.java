@@ -1,6 +1,6 @@
 public class Outstate extends Student {
     public static final int OUT_STATE_CREDIT = 756;
-    public static final int TRISTATE_CREDIT = 233;
+    public static final int TRISTATE_CREDIT = 556;
     private boolean tristate;
     public Outstate(String fname, String lname, int credit, boolean tristate){
         super(fname, lname, credit);
@@ -36,14 +36,7 @@ public class Outstate extends Student {
         return total;
     }
     public String toString() {
-        String triStr = "";
-        if (tristate){
-            triStr = "Is Tristate";
-        }
-        else {
-            triStr = "Is Not Tristate";
-        }
-        return super.toString() + " " + triStr;
+        return super.toString() + " Is Tristate:" + tristate;
     }
 
     public static void main(String[] args){

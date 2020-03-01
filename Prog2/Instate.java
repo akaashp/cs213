@@ -25,7 +25,7 @@ public class Instate extends Student {
         return total;
     }
     public String toString() {
-        return super.toString() + " " + funds;
+        return super.toString() + " Funds:" + funds;
     }
 
     public static void main(String[] args){
