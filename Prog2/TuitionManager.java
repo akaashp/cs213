@@ -11,6 +11,10 @@ public class TuitionManager{
     Scanner stdin;
     StudentList sList;
 
+    /**
+     * Given an action by a user, chooses appropriate response
+     * continually scans lines from stdin for next operation
+     */
     public void run() {
         sList = new StudentList();
         stdin = new Scanner(System.in);
@@ -62,6 +66,14 @@ public class TuitionManager{
         print();
     }
 
+    /**
+     * Adds the corresponding type of student given that they do not already exist in the studentlist.
+     * @param command type of student to be added
+     * @param fName first name of student
+     * @param lName last name of student
+     * @param credit number of credits
+     * @param typeSpecificData type specific student data
+     */
     private void add(String command, String fName, String lName, int credit, String typeSpecificData) {
 
 
@@ -90,21 +102,37 @@ public class TuitionManager{
 
     }
 
+    /**
+     * Helper method to check whether a given student is in the list already
+     * @param s Student to be checked
+     * @return true if student is in the list, false otherwise
+     */
     private boolean containsStudent(Student s){
         if(sList.contains(s)){
-            System.out.println("Duplicate Student");
+            System.out.println("Duplicate Student!");
             return true;
         }
         return false;
     }
 
-
+    /**
+     * Removes a given student from the list if the student exists. Otherwise, tells user student was not found
+     * @param fName first name of student
+     * @param lName last name of student
+     */
     private void remove(String fName, String lName){
         Student tempStu = new Instate(fName, lName,5,100);//creates dummy instate student to try to remove based on name
-        sList.remove(tempStu);
+        if(!sList.remove(tempStu)){
+            System.out.println("Student to be removed not found!");
+        }else{
+            System.out.println(fName+ " "+lName+" was removed.");
+        }
 
     }
 
+    /**
+     * Prints the list of students if there are students in the list, otherwise tells user 0 students exist
+     */
     private void print(){
         if (sList.isEmpty()){
             System.out.println("There are 0 students on the list!");

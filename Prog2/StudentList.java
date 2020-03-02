@@ -1,5 +1,10 @@
-import javax.swing.*;
-
+/**
+ * This class defines the properties and methods of a StudentList, a container class for Students.
+ * Students, regardless of their type, are stored in an array, with an int to keep track of the total students.
+ * Methods are included for finding, adding, removing students, printing all students.
+ *
+ * @author  Akaash Patel, Yanheng Zhang
+ */
 public class StudentList {
     //use array list of Students?
     private final int NOT_FOUND = -1;
@@ -7,6 +12,9 @@ public class StudentList {
     private Student[] studentList;
     private int numStudents;
 
+    /**
+     * Constructor for StudentList
+     */
     public StudentList(){
         studentList = new Student[GROW_SIZE];
         numStudents = 0;
@@ -69,7 +77,6 @@ public class StudentList {
      * @param s Student to be removed
      * @return True if Student was removed, false otherwise
      */
-
     public boolean remove(Student s){
         int remInd = this.find(s);
         if (!(remInd == -1)) {
@@ -82,6 +89,10 @@ public class StudentList {
 
     }
 
+    /**
+     * Prints each student in the studentList array
+     */
+
     public void print(){
         for(int i = 0; i <numStudents; i++){
             System.out.println(studentList[i]+ " tuition due: $"+ studentList[i].tuitionDue());
@@ -93,7 +104,6 @@ public class StudentList {
      *
      * @return True if numStudents is 0, false otherwise
      */
-
     public boolean isEmpty(){
         return numStudents == 0;
 
@@ -105,12 +115,10 @@ public class StudentList {
         Student s2 = new International("henri", "ban", 9,true);
         Student s3 = new Outstate("LIttle", "pump", 12, true);
         Student s4 = new Outstate("beck", "vick", 8, true);
-        Student s5 = new Outstate("ur", "mom", 13, true);
+        Student s5 = new Outstate("Mack", "Aveli", 13, true);
         sList.add(s1); sList.add(s2);sList.add(s3);sList.add(s4);sList.add(s5);
 
         sList.print();
-
-
 
     }
 }
