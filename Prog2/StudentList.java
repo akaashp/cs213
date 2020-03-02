@@ -5,6 +5,7 @@
  *
  * @author  Akaash Patel, Yanheng Zhang
  */
+
 public class StudentList {
     //use array list of Students?
     private final int NOT_FOUND = -1;
@@ -23,7 +24,6 @@ public class StudentList {
 
     /**
      * Finds a specific Student in the studentList array by looping through it using compareTo
-     *
      * @param s Student to be searched for in array studentList
      * @return First index of a matching Student in array team if one exists, NOT_FOUND constant otherwise
      */
@@ -38,7 +38,6 @@ public class StudentList {
 
     /**
      * Checks to see if array studentList contains a certain Student
-     *
      * @param s Student to be checked for inclusion
      * @return False if no match can be found, and true otherwise
      */
@@ -59,7 +58,6 @@ public class StudentList {
 
     /**
      * Adds Student to array studentList, calling grow() on the array if full
-     *
      * @param s Student to be added
      */
     public void add(Student s){
@@ -73,7 +71,6 @@ public class StudentList {
     /**
      * Removes Student from array by finding the removed index through find(), replacing that with the last
      * element and then setting the last element to null
-     *
      * @param s Student to be removed
      * @return True if Student was removed, false otherwise
      */
@@ -92,7 +89,6 @@ public class StudentList {
     /**
      * Prints each student in the studentList array
      */
-
     public void print(){
         for(int i = 0; i <numStudents; i++){
             System.out.println(studentList[i]+ " tuition due: $"+ studentList[i].tuitionDue());
@@ -101,7 +97,6 @@ public class StudentList {
 
     /**
      * Checks if studentList is empty
-     *
      * @return True if numStudents is 0, false otherwise
      */
     public boolean isEmpty(){
