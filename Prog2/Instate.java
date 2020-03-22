@@ -46,7 +46,7 @@ public class Instate extends Student {
             total = this.credit * IN_STATE_CREDIT;
         }
         total += fee;
-        total -= funds;
+        if (credit >= 12) total -= funds;
         return total;
     }
 
