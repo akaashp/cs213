@@ -1,3 +1,5 @@
+package Prog2;
+
 /**
  * This class defines the properties and methods of Instate, a subclass of Student.
  * An Instate has all the properties of a student, but with a different implementation of tuitionDue due to

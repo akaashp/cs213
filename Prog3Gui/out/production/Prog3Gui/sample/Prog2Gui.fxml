@@ -1,24 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <HBox prefHeight="200.0" prefWidth="500.0">
+        <HBox layoutY="150.0" prefHeight="150.0" prefWidth="500.0">
             <children>
-                <AnchorPane prefHeight="200.0" prefWidth="150.0" />
-                <AnchorPane prefHeight="200.0" prefWidth="250.0" />
+                <AnchorPane prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <RadioButton fx:id="inStateRadio" layoutX="30.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#inStateClick" selected="true" text="In State">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="student" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="outStateRadio" layoutX="30.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#outStateClick" text="Out of State" toggleGroup="$student" />
+                  <RadioButton fx:id="internationalRadio" layoutX="29.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#internationalClick" text="International" toggleGroup="$student" />
+               </children></AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="250.0">
+               <children>
+                  <CheckBox fx:id="funding" layoutX="14.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#fundingClick" text="Funding" />
+                  <CheckBox fx:id="triStateStu" disable="true" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" text="Tri-State Student" />
+                  <CheckBox fx:id="exchangeStu" disable="true" layoutX="14.0" layoutY="104.0" mnemonicParsing="false" text="Exchange Student" />
+                  <TextField fx:id="fundingBox" alignment="CENTER_RIGHT" disable="true" layoutX="137.0" layoutY="21.0" prefHeight="27.0" prefWidth="113.0" text="0" />
+               </children></AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Button layoutX="30.0" layoutY="34.0" mnemonicParsing="false" text="Add" />
-                        <Button layoutX="19.0" layoutY="87.0" mnemonicParsing="false" text="Remove" />
-                        <Button layoutX="29.0" layoutY="144.0" mnemonicParsing="false" text="Print" />
+                        <Button fx:id="add" layoutX="30.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#addClick" text="Add" />
+                        <Button fx:id="remove" layoutX="19.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#removeClick" text="Remove" />
+                        <Button fx:id="Print" layoutX="29.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#printClick" text="Print" />
                     </children>
                 </AnchorPane>
             </children>
         </HBox>
+      <HBox prefHeight="150.0" prefWidth="500.0">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="144.0">
+               <children>
+                  <Label layoutX="57.0" layoutY="26.0" text="First Name" />
+                  <Label layoutX="57.0" layoutY="67.0" text="Last Name" />
+                  <Label layoutX="16.0" layoutY="109.0" text="Number of Credits" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="150.0" prefWidth="356.0">
+               <children>
+                  <TextField fx:id="fName" layoutY="20.0" prefHeight="27.0" prefWidth="341.0" />
+                  <TextField fx:id="lName" layoutY="62.0" prefHeight="27.0" prefWidth="341.0" />
+                  <TextField fx:id="numCredits" layoutY="103.0" prefHeight="27.0" prefWidth="341.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <TextArea fx:id="outputArea" layoutX="10.0" layoutY="300.0" prefHeight="291.0" prefWidth="480.0" />
     </children>
 </AnchorPane>

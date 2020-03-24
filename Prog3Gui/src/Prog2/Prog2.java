@@ -1,3 +1,5 @@
+package Prog2;
+
 /**
  * Driver class that calls run from TuitionManager
  @author  Akaash Patel, Yanheng Zhang

@@ -1,3 +1,5 @@
+package Prog2;
+
 /**
  * This class defines the properties and methods of Student, an abstract parent class of three subclasses.
  * A Student consists of a first name and last name for identification, and a variable containing total credits.

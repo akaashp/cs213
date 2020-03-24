@@ -1,4 +1,4 @@
-/**
+package Prog2; /**
  User interface to handle input/output regarding students
  Can process inputs given by user and perform appropriate actions
 

@@ -1,3 +1,5 @@
+package Prog2;
+
 /**
  * This class defines the properties and methods of a StudentList, a container class for Students.
  * Students, regardless of their type, are stored in an array, with an int to keep track of the total students.
