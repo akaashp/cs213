@@ -85,9 +85,14 @@ public class Controller {
             outputArea.appendText("Need a last name!\n");
             return;
         }
-        //need to check if credits are numeric
+
         if (!numCredits.getText().equals("")){
-            credit = Integer.parseInt(numCredits.getText());
+            try {
+                credit = Integer.parseInt(numCredits.getText());
+            }catch (NumberFormatException nfe){
+                outputArea.appendText("Credits must be a number!\n");
+                return;
+            }
             if (credit<1 || (credit<9 && internationalRadio.isSelected())){
                 outputArea.appendText("Invalid number of credits!\n");
                 return;
@@ -99,7 +104,19 @@ public class Controller {
 
 
         if (inStateRadio.isSelected()){
-            int funds = Integer.parseInt(fundingBox.getText());
+            int funds = 0;
+            if (funding.isSelected()) {
+                try {
+                    funds = Integer.parseInt(fundingBox.getText());
+                } catch (NumberFormatException nfe) {
+                    outputArea.appendText("Funds must be a number!\n");
+                    return;
+                }
+                if (funds < 0) {
+                    outputArea.appendText("Funds cannot be negative!\n");
+                    return;
+                }
+            }
             Instate tempStu = new Instate(firstName, lastName, credit, funds);
             if (containsStudent(tempStu)) return;
 
@@ -120,7 +137,7 @@ public class Controller {
             sList.add(tempStu);
 
         }
-
+        outputArea.appendText("Student successfully added!\n");
     }
 
     private boolean containsStudent(Student s){
