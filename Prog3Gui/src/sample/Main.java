@@ -1,5 +1,11 @@
 package sample;
 
+/**
+ * This class defines the properties and methods of a
+ *
+ * @author  Akaash Patel, Yanheng Zhang
+ */
+
 import Prog2.StudentList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -12,8 +12,8 @@ public class StudentList {
     //use array list of Students?
     private final int NOT_FOUND = -1;
     private final int GROW_SIZE = 4; //initial and grow size
-    private Student[] studentList;
-    private int numStudents;
+    public Student[] studentList;
+    public int numStudents;
 
     /**
      * Constructor for StudentList
