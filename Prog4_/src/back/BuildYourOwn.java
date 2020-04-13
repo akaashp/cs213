@@ -27,10 +27,10 @@ public class BuildYourOwn extends Pizza {
      * @return Int, using one of the three static variables and price per topping multiplied by size of topping list
      */
     public int pizzaPrice(){
-        if (size.equals("small")){
+        if (size.equals("Small (10\")")){
             return SML_BYO_PRICE + toppings.size() * PRICE_PER_TOPPING;
         }
-        else if (size.equals("medium")){
+        else if (size.equals("Medium (12\")")){
             return MED_BYO_PRICE + toppings.size() * PRICE_PER_TOPPING;
         }
         else {
@@ -44,7 +44,7 @@ public class BuildYourOwn extends Pizza {
      * @return String representation of BuildYourOwn pizza
      */
     public String toString(){
-        return super.toString() + "\n" + this.pizzaPrice();
+        return super.toString() + "\nPrice: " + this.pizzaPrice() + "\n";
     }
 
     public void addTopping(String s){

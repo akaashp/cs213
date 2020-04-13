@@ -22,10 +22,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
 import static sample.Main.pizzaList;
 
 
@@ -41,17 +39,14 @@ public class Controller {
 
     @FXML
     public AnchorPane rootPane;
-
     @FXML
     private ComboBox<String> pType;
     @FXML
     private  ComboBox<String> pSize;
-
     @FXML
     private ListView<String> Toppings;
     @FXML
     private ListView<String> ToppingsSelected;
-
     @FXML
     private Button addTop;
     @FXML
@@ -62,23 +57,28 @@ public class Controller {
     private Button addToOrder;
     @FXML
     private Button showOrder;
-
     @FXML
     private ImageView imgView;
-
     @FXML
     private TextArea outArea;
 
+    /**
+     *Method that is run when this controller is initialized, Populates the ImageView, comboboxes, and ListViews
+     */
     @FXML
     public void initialize(){
         Toppings.setItems(defaultToppings);
         pType.setItems(pTypeList);
         pSize.setItems(pSizeList);
         pType.setValue("Build Your Own");
-        pSize.setValue("Medium");
+        pSize.setValue("Medium (12\")");
         imgView.setImage(new Image("sample/byo.png"));
     }
 
+    /**
+     * Handles clicking AddTop button, adds the selected topping given that toppingsSelected <= 6
+     * @param mouseEvent Click event to be handled
+     */
     public void AddTopClicked(MouseEvent mouseEvent) {
         if (toppingsSelectedList.size() > 5){
             outArea.appendText("Maximum 6 toppings!\n");
@@ -93,6 +93,10 @@ public class Controller {
         ToppingsSelected.setItems(toppingsSelectedList);
     }
 
+    /**
+     * Handles clicking remove topping button. Removes the selected topping
+     * @param mouseEvent
+     */
     public void removeTopClicked(MouseEvent mouseEvent) {
         String tempTop = ToppingsSelected.getSelectionModel().getSelectedItem();
         if (tempTop == null) return;
@@ -102,23 +106,25 @@ public class Controller {
         Toppings.setItems(remainingToppings);
     }
 
+    /**
+     * Handles clicking clear button, Clears the current toppings selected
+     * @param mouseEvent
+     */
     public void clearSelClicked(MouseEvent mouseEvent) {
         remainingToppings.addAll(toppingsSelectedList);
         toppingsSelectedList.clear();
         ToppingsSelected.setItems(toppingsSelectedList);
     }
 
+    /**
+     * Adds the current selection to the order given toppings>1. Adds Pizza of selected type and
+     * selected parameters to pizzaList
+     * @param mouseEvent Click event to be handled
+     */
     public void addToOrderClicked(MouseEvent mouseEvent) {
         String tempType = pType.getSelectionModel().getSelectedItem();
         String tempSize = pSize.getSelectionModel().getSelectedItem();
-        if (tempType == null){
-            outArea.appendText("Must select a pizza type!\n");
-            return;
-        }
-        if (tempSize == null){
-            outArea.appendText("Must select a pizza size!\n");
-            return;
-        }
+
         if (toppingsSelectedList.size() < 1){
             outArea.appendText("Minimum 1 topping!\n");
             return;
@@ -139,11 +145,21 @@ public class Controller {
 
     }
 
+    /**
+     * Switched the FXML and controller to odController and orderDetails.fxml upon user click
+     * @param mouseEvent
+     * @throws IOException Upon unsuccessful load of resource
+     */
     public void showOrderClicked(MouseEvent mouseEvent) throws IOException {
        AnchorPane pane = FXMLLoader.load(getClass().getResource("orderDetails.fxml"));
        rootPane.getChildren().setAll(pane);
     }
 
+    /**
+     * Depending on which pizza type is selected, makes changes to the gui such as disabling adding toppings
+     * when a specialty pizza is chosen.
+     * @param mouseEvent
+     */
     public void typeClicked(ActionEvent mouseEvent) {
 
         remainingToppings.addAll(toppingsSelectedList);

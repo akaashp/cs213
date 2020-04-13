@@ -31,10 +31,10 @@ public class Deluxe extends Pizza {
      * @return Int, using one of the three static variables
      */
     public int pizzaPrice(){
-        if (size.equals("small")){
+        if (size.equals("Small (10\")")){
             return SML_DELUXE_PRICE;
         }
-        else if (size.equals("medium")){
+        else if (size.equals("Medium (12\")")){
             return MED_DELUXE_PRICE;
         }
         else {
@@ -48,7 +48,7 @@ public class Deluxe extends Pizza {
      * @return String representation of Deluxe pizza
      */
     public String toString(){
-        return super.toString() + "\n" + this.pizzaPrice();
+        return super.toString() + "\nPrice: " + this.pizzaPrice() + "\n";
     }
 
 }
