@@ -1,5 +1,8 @@
 package back;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class defines the properties and methods of Deluxe, a subclass of Pizza. Deluxe implements pizzaPrice()
  * to return price for pizza and overrides the toString method to return additional class-specific information
@@ -11,13 +14,16 @@ public class Deluxe extends Pizza {
     public static final int SML_DELUXE_PRICE = 14;
     public static final int MED_DELUXE_PRICE = 16;
     public static final int LRG_DELUXE_PRICE = 18;
+    ArrayList<String> deluxeToppings = new ArrayList<String>(List.of("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom"));
+
 
     /**
      * Constructor for Deluxe pizza
      * @param size Size of Deluxe pizza
      */
     public Deluxe(String size){
-        super("deluxe", size);
+        super("Deluxe", size);
+        toppings = deluxeToppings;
     }
 
     /**
@@ -42,7 +48,7 @@ public class Deluxe extends Pizza {
      * @return String representation of Deluxe pizza
      */
     public String toString(){
-        return super.toString() + " " + this.pizzaPrice();
+        return super.toString() + "\n" + this.pizzaPrice();
     }
 
 }

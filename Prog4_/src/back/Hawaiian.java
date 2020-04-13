@@ -1,5 +1,8 @@
 package back;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class defines the properties and methods of Hawaiian, a subclass of Pizza. Hawaiian implements pizzaPrice()
  * to return price for pizza and overrides the toString method to return additional class-specific information
@@ -11,13 +14,16 @@ public class Hawaiian extends Pizza {
     public static final int SML_HAWAIIAN_PRICE = 8;
     public static final int MED_HAWAIIAN_PRICE = 10;
     public static final int LRG_HAWAIIAN_PRICE = 12;
+    ArrayList<String> hawaiianToppings = new ArrayList<String>(List.of("Ham", "Pineapple"));
+
 
     /**
      * Constructor for Hawaiian pizza
      * @param size Size of Hawaiian pizza
      */
     public Hawaiian(String size){
-        super("hawaiian", size);
+        super("Hawaiian", size);
+        toppings = hawaiianToppings;
     }
 
     /**
@@ -42,7 +48,7 @@ public class Hawaiian extends Pizza {
      * @return String representation of Hawaiian pizza
      */
     public String toString(){
-        return super.toString() + " " + this.pizzaPrice();
+        return super.toString() + "\n" + this.pizzaPrice();
     }
 
 }

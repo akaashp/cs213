@@ -8,14 +8,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ComboBox layoutX="326.0" layoutY="72.0" prefWidth="150.0" />
-      <ComboBox layoutX="326.0" layoutY="130.0" prefWidth="150.0" />
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="23.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+      <ComboBox fx:id="pType" layoutX="326.0" layoutY="72.0" onAction="#typeClicked" prefWidth="150.0" />
+      <ComboBox fx:id="pSize" layoutX="326.0" layoutY="130.0" prefWidth="150.0" />
+      <ImageView fx:id="imgView" fitHeight="200.0" fitWidth="200.0" layoutX="23.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="326.0" layoutY="49.0" text="Pizza Type" />
       <Label layoutX="326.0" layoutY="106.0" text="Size" />
-      <TextArea layoutY="554.0" prefHeight="111.0" prefWidth="599.0" />
+      <TextArea fx:id="outArea" editable="false" layoutY="554.0" prefHeight="111.0" prefWidth="599.0" />
       <ListView fx:id="Toppings" layoutX="14.0" layoutY="243.0" prefHeight="303.0" prefWidth="159.0" />
       <Button fx:id="addTop" layoutX="196.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#AddTopClicked" text="Add Topping -&gt;" />
       <Button fx:id="removeTop" layoutX="185.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#removeTopClicked" text="&lt;- Remove Topping" />

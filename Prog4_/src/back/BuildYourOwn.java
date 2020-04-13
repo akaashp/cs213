@@ -19,7 +19,7 @@ public class BuildYourOwn extends Pizza {
      * @param size Size of Hawaiian pizza
      */
     public BuildYourOwn(String size, ArrayList<String> toppings){
-        super("byo", size, toppings);
+        super("Build Your Own", size, toppings);
     }
 
     /**
@@ -34,7 +34,7 @@ public class BuildYourOwn extends Pizza {
             return MED_BYO_PRICE + toppings.size() * PRICE_PER_TOPPING;
         }
         else {
-            return MED_BYO_PRICE + toppings.size() * PRICE_PER_TOPPING;
+            return LRG_BYO_PRICE + toppings.size() * PRICE_PER_TOPPING;
         }
     }
 
@@ -44,7 +44,12 @@ public class BuildYourOwn extends Pizza {
      * @return String representation of BuildYourOwn pizza
      */
     public String toString(){
-        return super.toString() + " " + this.pizzaPrice();
+        return super.toString() + "\n" + this.pizzaPrice();
+    }
+
+    public void addTopping(String s){
+        toppings.add(s);
+
     }
 
 }

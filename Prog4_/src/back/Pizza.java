@@ -8,6 +8,7 @@ package back;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Pizza {
     protected String style;
@@ -43,10 +44,11 @@ public abstract class Pizza {
      * @return String containing style, size, and toppings
      */
     public String toString(){
-        String ret = style + " " + size + " ";
+        String ret =  size + " " + style;
         for (int i = 0; i<toppings.size(); i++){
+            ret += "\n";
             ret += toppings.get(i);
         }
-        return ret.substring(0, ret.length()-1);
+        return ret;
     }
 }
