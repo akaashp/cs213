@@ -1,4 +1,5 @@
-package back; /**
+package back;
+/**
  * This class defines the properties and methods of BuildYourOwn, a subclass of Pizza. BuildYourOwn implements
  * pizzaPrice()to return price for pizza and overrides the toString method to return additional class-specific
  * information
@@ -47,6 +48,10 @@ public class BuildYourOwn extends Pizza {
         return super.toString() + "\nPrice: " + this.pizzaPrice() + "\n";
     }
 
+    /**
+     * Allows controller to add topping to the pizza
+     * @param s Topping to be added
+     */
     public void addTopping(String s){
         toppings.add(s);
 

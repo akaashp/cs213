@@ -37,6 +37,10 @@ public abstract class Pizza {
         this.size = size;
     }
 
+    /**
+     * Abstract requirement for subclasses; returns price of Pizza
+     * @return Int price of pizza
+     */
     public abstract int pizzaPrice();
 
     /**
